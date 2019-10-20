@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ScrollView } from 'react-native';
 import { OpenSansLightText } from '../components/StyledText'
 import { Ionicons } from '@expo/vector-icons';
 
-import Workshops from '../constants/workshops'
+import { fetchAllWorkshops } from '../api/Client'
 
 import Workshop from '../components/workshops/Workshop'
 
@@ -29,8 +29,13 @@ const scrollContainerStyles = {
 }
 
 const WorkshopsScreen = () => {
-  const [favoritedWorkshops, setFavoritedWorkshops] = useState([])
+  const [workshops, setWorkshops] = useState([])
+  useEffect(() => {
+    fetchAllWorkshops()
+      .then(res => setWorkshops(res.data.workshops))
+  }, [])
 
+  const [favoritedWorkshops, setFavoritedWorkshops] = useState([])
   const makeToggleFavorited = (workshopId) => () => {
     if (favoritedWorkshops.includes(workshopId)) {
       const idx = favoritedWorkshops.indexOf(workshopId)
@@ -42,7 +47,7 @@ const WorkshopsScreen = () => {
       setFavoritedWorkshops([...favoritedWorkshops, workshopId])
     }
   }
-  const workshops = Workshops.map(workshop => (
+  const renderedWorkshops = workshops.map(workshop => (
     <Workshop 
       key={workshop.id} 
       workshop={workshop} 
@@ -55,7 +60,7 @@ const WorkshopsScreen = () => {
     <View style={{ flex: 1, marginHorizontal: 10 }}>
       <ScrollView style={scrollContainerStyles}>
         <WorkshopsScreenHeader/>
-        {workshops}
+        {renderedWorkshops}
       </ScrollView>
     </View>
   );
