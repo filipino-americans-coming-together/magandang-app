@@ -56,11 +56,14 @@ const WorkshopsScreen = () => {
     />
   ))
 
+  const isLoading = workshops.length === 0
   return (
     <View style={{ flex: 1, marginHorizontal: 10 }}>
       <ScrollView style={scrollContainerStyles}>
         <WorkshopsScreenHeader/>
-        {renderedWorkshops}
+        { isLoading ? (
+          <OpenSansLightText>Loading...</OpenSansLightText>
+        ): renderedWorkshops}
       </ScrollView>
     </View>
   );
