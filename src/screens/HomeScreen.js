@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Platform,
   ScrollView,
@@ -8,16 +8,30 @@ import {
   View,
   StatusBar
 } from 'react-native';
-import { OpenSansLightText, OpenSansRegularText } from '../components/StyledText'
+
+import { fetchUpdates } from '../api/Client'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
 
+import { OpenSansLightText, OpenSansRegularText } from '../components/StyledText'
+import UpdatesListView from '../components/updates/UpdatesListView'
+
 export default function HomeScreen() {
-  
   useEffect(() => {
     registerForPushNotificationsAsync()
   }, [])
+
+
+  const [updates, setUpdates] = useState()
+  useEffect(() => {
+    fetchUpdates()
+        .then(res => setUpdates(res.data.updates))
+  }, [])
+  
   return (
-    <View style={styles.container}>
+    <View style={{ 
+      flex: 1,
+      backgroundColor: '#fff'
+    }}>
       <ScrollView
         contentContainerStyle={{
           flex: 1,
@@ -36,17 +50,19 @@ export default function HomeScreen() {
           />
 
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ 
+          flex: 1,
+          marginHorizontal: 10
+        }}>
           <View style={sectionStyles.container}>
-            <OpenSansLightText style={sectionStyles.header}>Updates</OpenSansLightText>
-            <View style={sectionStyles.body}>
-              <OpenSansRegularText style={{ height: 100, lineHeight: 20, textAlign: 'center'}}>No updates.</OpenSansRegularText>
+            <View style={sectionStyles.header}>
+              <OpenSansLightText style={sectionStyles.headerText}>Updates</OpenSansLightText>
             </View>
+            <UpdatesListView updates={updates}/>
           </View>
           <View style={sectionStyles.container}>
-            <OpenSansLightText style={sectionStyles.header}>Your Workshops</OpenSansLightText>
-            <View style={sectionStyles.body}>
-              <OpenSansRegularText style={{ height: 100, lineHeight: 20, textAlign: 'center'}}>No workshops.</OpenSansRegularText>
+            <View style={sectionStyles.header}>
+              <OpenSansLightText style={sectionStyles.headerText}>Favorite Workshops</OpenSansLightText>
             </View>
           </View>
         </View>
@@ -63,105 +79,19 @@ HomeScreen.navigationOptions = {
 
 const sectionStyles = StyleSheet.create({
   container: {
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 20,
+    paddingBottom: 10,
     flex: 0,
   },
   header: {
-    fontSize: 30,
     paddingBottom: 15,
-    textAlign: 'center'
+    flex: 0
+  },
+  headerText: {
+    textAlign: 'center',
+    fontSize: 24,
   },
   body: {
-    flex: 1
+    flex: 0
   }
 })
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});
