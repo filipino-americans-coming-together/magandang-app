@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, ScrollView, Text } from 'react-native' 
 
+import Workshop from './Workshop'
 import { OpenSansLightText, OpenSansRegularText } from '../StyledText'
 
 const WorkshopsListView = ({ workshops }) => {
@@ -30,7 +31,7 @@ const WorkshopsListView = ({ workshops }) => {
     <ScrollView style={{
       paddingHorizontal: 10,
     }}>
-      <Text>Hi</Text>
+      {(workshops || []).map(workshop => <Workshop workshop={workshop}/>)}
     </ScrollView>
   )
 }

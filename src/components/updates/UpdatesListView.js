@@ -5,7 +5,6 @@ import { OpenSansLightText, OpenSansRegularText } from '../StyledText'
 import Update from './Update'
 
 const UpdatesListView = ({ updates }) => {
-  console.log(updates)
   const isLoading = updates === undefined
   if (isLoading) {
     return (

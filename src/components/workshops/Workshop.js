@@ -74,7 +74,7 @@ const FavoriteIcon = ({ isFavorited, toggleFavorited }) => {
   )
 } 
 
-const Workshop = ({ workshop, isFavorited, toggleFavorited }) => {
+const Workshop = ({ workshop, showFavoriteButton, isFavorited, toggleFavorited }) => {
   const { id, name, title } = workshop
   return (
     <View style={{
@@ -87,7 +87,11 @@ const Workshop = ({ workshop, isFavorited, toggleFavorited }) => {
           <WorkshopTitle>{title}</WorkshopTitle>
           <WorkshopFacilitator>{name}</WorkshopFacilitator>
         </View>
-        <FavoriteIcon isFavorited={isFavorited} toggleFavorited={toggleFavorited} />
+        {
+          showFavoriteButton && (
+            <FavoriteIcon isFavorited={isFavorited} toggleFavorited={toggleFavorited} />
+          )
+        }
       </View>
     </View>
   )

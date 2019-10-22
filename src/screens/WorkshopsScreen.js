@@ -4,6 +4,7 @@ import { OpenSansLightText } from '../components/StyledText'
 import { Ionicons } from '@expo/vector-icons';
 
 import { fetchAllWorkshops } from '../api/Client'
+import { getFavoriteWorkshops, storeFavoriteWorkshops } from '../services/favoriteWorkshopsStore'
 
 import Workshop from '../components/workshops/Workshop'
 
@@ -36,21 +37,32 @@ const WorkshopsScreen = () => {
   }, [])
 
   const [favoritedWorkshops, setFavoritedWorkshops] = useState([])
+  useEffect(() => {
+    getFavoriteWorkshops()
+      .then(res => setFavoritedWorkshops(res))
+  }, [])
+
   const makeToggleFavorited = (workshopId) => () => {
     if (favoritedWorkshops.includes(workshopId)) {
       const idx = favoritedWorkshops.indexOf(workshopId)
-      setFavoritedWorkshops([
+      const newWorkshops = [
         ...favoritedWorkshops.slice(0, idx),
         ...favoritedWorkshops.slice(idx + 1)
-      ])
+      ]
+      setFavoritedWorkshops(newWorkshops,
+      storeFavoriteWorkshops(newWorkshops))
     } else {
-      setFavoritedWorkshops([...favoritedWorkshops, workshopId])
+      const newWorkshops = [...favoritedWorkshops, workshopId]
+      setFavoritedWorkshops(newWorkshops,
+        storeFavoriteWorkshops(newWorkshops))
     }
   }
+
   const renderedWorkshops = workshops.map(workshop => (
     <Workshop 
       key={workshop.id} 
       workshop={workshop} 
+      showFavoriteButton={true}
       isFavorited={favoritedWorkshops.includes(workshop.id)}
       toggleFavorited={makeToggleFavorited(workshop.id)}
     />

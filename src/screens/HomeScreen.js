@@ -9,24 +9,55 @@ import {
   StatusBar
 } from 'react-native';
 
-import { fetchUpdates } from '../api/Client'
+import { fetchUpdates, fetchAllWorkshops } from '../api/Client'
+import { 
+  getFavoriteWorkshops, 
+  storeFavoriteWorkshops 
+} from '../services/favoriteWorkshopsStore'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
 
 import { OpenSansLightText, OpenSansRegularText } from '../components/StyledText'
 import UpdatesListView from '../components/updates/UpdatesListView'
 import WorkshopsListView from '../components/workshops/WorkshopsListView'
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   useEffect(() => {
     registerForPushNotificationsAsync()
-  }, [])
 
+    const didBlurSubscription = navigation.addListener(
+      'willFocus',
+      () => {
+        getFavoriteWorkshops()
+          .then(res => setFavoriteWorkshopsIds(res))
+      }
+    );
+    
+    return () => {
+      didBlurSubscription.remove();
+    }
+  }, [])
 
   const [updates, setUpdates] = useState()
   useEffect(() => {
     fetchUpdates()
         .then(res => setUpdates(res.data.updates))
   }, [])
+
+  const [workshops, setWorkshops] = useState([])
+  useEffect(() => {
+    fetchAllWorkshops()
+      .then(res => setWorkshops(res.data.workshops))
+  }, [])
+
+  const [favoriteWorkshopsIds, setFavoriteWorkshopsIds] = useState([])
+  useEffect(() => {
+    getFavoriteWorkshops()
+      .then(res => setFavoriteWorkshopsIds(res))
+  }, [])
+
+  const favoriteWorkshops = workshops.filter(workshop => {
+    return favoriteWorkshopsIds.includes(workshop.id)
+  })
   
   return (
     <View style={{ 
@@ -53,7 +84,6 @@ export default function HomeScreen() {
         </View>
         <View style={{ 
           flex: 1,
-          marginHorizontal: 10
         }}>
           <View style={sectionStyles.container}>
             <View style={sectionStyles.header}>
@@ -64,12 +94,10 @@ export default function HomeScreen() {
           <View style={sectionStyles.container}>
             <View style={sectionStyles.header}>
               <OpenSansLightText style={sectionStyles.headerText}>Favorite Workshops</OpenSansLightText>
-              <WorkshopsListView workshops={[]}/>
             </View>
+            <WorkshopsListView workshops={favoriteWorkshops}/>
           </View>
         </View>
-
-
       </ScrollView>
     </View>
   );
@@ -92,6 +120,7 @@ const sectionStyles = StyleSheet.create({
   headerText: {
     textAlign: 'center',
     fontSize: 24,
+    paddingBottom: 10,
   },
   body: {
     flex: 0
