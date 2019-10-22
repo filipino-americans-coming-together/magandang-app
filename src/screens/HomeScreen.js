@@ -14,6 +14,7 @@ import registerForPushNotificationsAsync from '../services/registerForPushNotifi
 
 import { OpenSansLightText, OpenSansRegularText } from '../components/StyledText'
 import UpdatesListView from '../components/updates/UpdatesListView'
+import WorkshopsListView from '../components/workshops/WorkshopsListView'
 
 export default function HomeScreen() {
   useEffect(() => {
@@ -63,6 +64,7 @@ export default function HomeScreen() {
           <View style={sectionStyles.container}>
             <View style={sectionStyles.header}>
               <OpenSansLightText style={sectionStyles.headerText}>Favorite Workshops</OpenSansLightText>
+              <WorkshopsListView workshops={[]}/>
             </View>
           </View>
         </View>
