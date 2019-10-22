@@ -42,6 +42,15 @@ export default function HomeScreen({ navigation }) {
     fetchUpdates()
         .then(res => setUpdates(res.data.updates))
   }, [])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchUpdates()
+        .then(res => setUpdates(res.data.updates))
+    }, 1000)
+    return () => {
+      clearInterval(interval)
+    }
+  })
 
   const [workshops, setWorkshops] = useState([])
   useEffect(() => {
