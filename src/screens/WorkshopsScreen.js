@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import Constants from 'expo-constants';
 import { View, ScrollView } from 'react-native';
 import { OpenSansLightText } from '../components/StyledText'
 import { Ionicons } from '@expo/vector-icons';
 
-import Colors from '../constants/Colors'
 import { fetchAllWorkshops } from '../api/Client'
 import { getFavoriteWorkshops, storeFavoriteWorkshops } from '../services/favoriteWorkshopsStore'
 
+import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
 import UIActivityIndicator from '../components/UIActivityIndicator'
 import Workshop from '../components/workshops/Workshop'
 
 const WorkshopsScreenHeader = () => {
   return (
-    <View style={{ flex: 0, flexDirection: 'row', paddingVertical: 12, paddingHorizontal: 10 }}>
+    <View style={{ 
+      flex: 0, 
+      flexDirection: 'row', 
+      paddingTop: 15, 
+      paddingBottom: 12, 
+      paddingHorizontal: 10 
+    }}>
       <View style={{ flex: 1}}>
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
           <OpenSansLightText style={{ flex: 0, fontSize: 24 }}>All Workshops</OpenSansLightText>
@@ -68,10 +73,7 @@ const WorkshopsScreen = () => {
   const isLoading = workshops.length === 0
   return (
     <View style={{ flex: 1 }}>
-      <View style={{
-        backgroundColor: Colors.PLUM,
-        height: Constants.statusBarHeight,
-      }} />
+      <UIStatusBarSpacer/>
       <WorkshopsScreenHeader />
       <ScrollView>
         <View style={{ flex: 1, marginHorizontal: 10 }}>

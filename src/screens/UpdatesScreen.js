@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import Constants from 'expo-constants';
 import { View, StyleSheet } from 'react-native'
 
-import Colors from '../constants/Colors'
 import { fetchUpdates } from '../api/Client'
 
-import { OpenSansLightText, OpenSansRegularText } from '../components/StyledText'
+import { OpenSansLightText } from '../components/StyledText'
 import UpdatesListView from '../components/updates/UpdatesListView'
+import UIStatusBarSpace from '../components/UIStatusBarSpacer'
+import UIScreenHeader from '../components/UIScreenHeader'
 
-const UpdatesHeader = () => (
-  <View style={{
-    fontSize: 24,
-    paddingHorizontal: 10,
-    paddingVertical: 12
-  }}>
-    <OpenSansLightText style={{ fontSize: 24 }}>Updates</OpenSansLightText>
-  </View>
-)
 const UpdatesScreen = ({ navigation }) => {
   const [updates, setUpdates] = useState()
   useEffect(() => {
@@ -33,11 +24,8 @@ const UpdatesScreen = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{
-        backgroundColor: Colors.PLUM,
-        height: Constants.statusBarHeight,
-      }} />
-      <UpdatesHeader />
+      <UIStatusBarSpace/>
+      <UIScreenHeader>Updates</UIScreenHeader>
       <UpdatesListView updates={updates}/>
     </View>
   )

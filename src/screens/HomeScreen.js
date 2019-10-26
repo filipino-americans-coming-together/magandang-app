@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Platform,
   ScrollView,
-  StyleSheet,
-  Text,
   Image,
   View,
-  StatusBar
 } from 'react-native';
 import Constants from 'expo-constants';
 
@@ -17,6 +13,9 @@ import {
   storeFavoriteWorkshops 
 } from '../services/favoriteWorkshopsStore'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
+
+import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
+import UIScreenHeader from '../components/UIScreenHeader'
 
 export default function HomeScreen({ navigation }) {
   useEffect(() => {
@@ -56,10 +55,7 @@ export default function HomeScreen({ navigation }) {
       flex: 1,
       backgroundColor: '#fff',
     }}>
-      <View style={{
-        backgroundColor: Colors.PLUM,
-        height: Constants.statusBarHeight,
-      }} />
+      <UIStatusBarSpacer/>
       <ScrollView>
         <View style={{ height: 300 }}>
           <Image 
@@ -73,6 +69,7 @@ export default function HomeScreen({ navigation }) {
           />
 
         </View>
+        <UIScreenHeader>Agenda</UIScreenHeader>
 
       </ScrollView>
     </View>
