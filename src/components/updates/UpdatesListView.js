@@ -31,7 +31,6 @@ const UpdatesListView = ({ updates }) => {
   return (
     <ScrollView style={{
       paddingHorizontal: 10,
-      height: 250
     }}>
       {updates.map(update => (
         <Update key={update.title} update={update}/>

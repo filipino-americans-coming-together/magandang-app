@@ -79,7 +79,6 @@ const Workshop = ({ workshop, showFavoriteButton, isFavorited, toggleFavorited }
   return (
     <View style={{
       marginVertical: 10,
-      paddingHorizontal: 10,
     }}>
       <View style={{ flex: 1, flexDirection: 'row' }}>
         <WorkshopId>{id}</WorkshopId>

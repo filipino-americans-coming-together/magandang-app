@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Modal } from 'react-native';
 import { OpenSansLightText } from '../components/StyledText'
 import { Ionicons } from '@expo/vector-icons';
 
@@ -10,7 +10,7 @@ import Workshop from '../components/workshops/Workshop'
 
 const WorkshopsScreenHeader = () => {
   return (
-    <View style={{ flex: 0, flexDirection: 'row', paddingHorizontal: 10, paddingTop: 30, }}>
+    <View style={{ flex: 0, flexDirection: 'row', paddingTop: 30, }}>
       <View style={{ flex: 1}}>
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
           <OpenSansLightText style={{ flex: 0, fontSize: 24 }}>All Workshops</OpenSansLightText>
