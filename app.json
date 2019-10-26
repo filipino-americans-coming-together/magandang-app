@@ -1,17 +1,18 @@
 {
   "expo": {
-    "name": "fact-2019-app",
+    "name": "FACT 2019",
+    "description": "An app for conference delegates to stay informed and updated during the Filipino-Americans Coming Together Conference 2019.",
     "slug": "fact-2019-app",
+    "owner": "Alpri Else",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
-      "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/fact-logo.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -24,7 +25,22 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
+    },
+    "androidNavigationBar": {
+      "visible": false,
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
+    },
+    "notification": {
+      "icon": "./assets/images/fact-logo.png",
+      "color": "#000000",
+      "iosDisplayInForeground": true,
+      "androidMode": "default"
     }
   }
 }

@@ -28,11 +28,11 @@ const WorkshopsListView = ({ workshops }) => {
   }
 
   return (
-    <ScrollView style={{
+    <View style={{
       paddingHorizontal: 10,
     }}>
       {(workshops || []).map(workshop => <Workshop workshop={workshop}/>)}
-    </ScrollView>
+    </View>
   )
 }
 

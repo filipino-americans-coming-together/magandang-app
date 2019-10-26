@@ -8,17 +8,15 @@ import {
   View,
   StatusBar
 } from 'react-native';
+import Constants from 'expo-constants';
 
+import Colors from '../constants/Colors'
 import { fetchUpdates, fetchAllWorkshops } from '../api/Client'
 import { 
   getFavoriteWorkshops, 
   storeFavoriteWorkshops 
 } from '../services/favoriteWorkshopsStore'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
-
-import { OpenSansLightText, OpenSansRegularText } from '../components/StyledText'
-import UpdatesListView from '../components/updates/UpdatesListView'
-import WorkshopsListView from '../components/workshops/WorkshopsListView'
 
 export default function HomeScreen({ navigation }) {
   useEffect(() => {
@@ -36,21 +34,6 @@ export default function HomeScreen({ navigation }) {
       didBlurSubscription.remove();
     }
   }, [])
-
-  const [updates, setUpdates] = useState()
-  useEffect(() => {
-    fetchUpdates()
-        .then(res => setUpdates(res.data.updates))
-  }, [])
-  useEffect(() => {
-    const interval = setInterval(() => {
-      fetchUpdates()
-        .then(res => setUpdates(res.data.updates))
-    }, 1000)
-    return () => {
-      clearInterval(interval)
-    }
-  })
 
   const [workshops, setWorkshops] = useState([])
   useEffect(() => {
@@ -71,14 +54,13 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={{ 
       flex: 1,
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
     }}>
-      <ScrollView
-        contentContainerStyle={{
-          flex: 1,
-          justifyContent: 'space-between'
-        }}
-      >
+      <View style={{
+        backgroundColor: Colors.PLUM,
+        height: Constants.statusBarHeight,
+      }} />
+      <ScrollView>
         <View style={{ height: 300 }}>
           <Image 
             source={require('../../assets/images/preview.png')}
@@ -91,22 +73,7 @@ export default function HomeScreen({ navigation }) {
           />
 
         </View>
-        <View style={{ 
-          flex: 1,
-        }}>
-          <View style={sectionStyles.container}>
-            <View style={sectionStyles.header}>
-              <OpenSansLightText style={sectionStyles.headerText}>Updates</OpenSansLightText>
-            </View>
-            <UpdatesListView updates={updates}/>
-          </View>
-          <View style={sectionStyles.container}>
-            <View style={sectionStyles.header}>
-              <OpenSansLightText style={sectionStyles.headerText}>Favorite Workshops</OpenSansLightText>
-            </View>
-            <WorkshopsListView workshops={favoriteWorkshops}/>
-          </View>
-        </View>
+
       </ScrollView>
     </View>
   );
@@ -115,23 +82,3 @@ export default function HomeScreen({ navigation }) {
 HomeScreen.navigationOptions = {
   header: null,
 };
-
-const sectionStyles = StyleSheet.create({
-  container: {
-    paddingTop: 20,
-    paddingBottom: 10,
-    flex: 0,
-  },
-  header: {
-    paddingBottom: 15,
-    flex: 0
-  },
-  headerText: {
-    textAlign: 'center',
-    fontSize: 24,
-    paddingBottom: 10,
-  },
-  body: {
-    flex: 0
-  }
-})

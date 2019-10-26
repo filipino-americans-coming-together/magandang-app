@@ -27,6 +27,7 @@ const UpdatesListView = ({ updates }) => {
 
   return (
     <ScrollView style={{
+      flex: 1,
       paddingHorizontal: 10,
     }}>
       {updates.map(update => (

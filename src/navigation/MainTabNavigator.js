@@ -4,9 +4,11 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarLabel from '../components/TabBarLabel'
 import TabBarIcon from '../components/TabBarIcon';
+
 import HomeScreen from '../screens/HomeScreen';
+import UpdatesScreen from '../screens/UpdatesScreen'
 import WorkshopsScreen from '../screens/WorkshopsScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import MapsScreen from '../screens/MapsScreen';
 
 import { Text } from 'react-native';
 
@@ -38,6 +40,28 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
+const UpdatesStack = createStackNavigator(
+  {
+    Updates: UpdatesScreen
+  },
+  config
+)
+
+UpdatesStack.navigationOptions = {
+  tabBarLabel: ({ focused }) => <TabBarLabel title='Updates' focused={focused} />,
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon 
+      focused={focused} 
+      name={
+        Platform.OS === 'ios' 
+          ? 'ios-alert'
+          : 'md-alert'
+      } 
+    />
+  ),
+}
+UpdatesStack.path = ''
+
 const WorkshopsStack = createStackNavigator(
   {
     Workshops: WorkshopsScreen,
@@ -61,14 +85,14 @@ WorkshopsStack.navigationOptions = {
 
 WorkshopsStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const MapsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Maps: MapsScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
+MapsStack.navigationOptions = {
   tabBarLabel: ({ focused }) => <TabBarLabel title='Map' focused={focused} />,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
@@ -79,12 +103,13 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-SettingsStack.path = '';
+MapsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
+  UpdatesStack,
   WorkshopsStack,
-  SettingsStack,
+  MapsStack,
 });
 
 tabNavigator.path = '';
