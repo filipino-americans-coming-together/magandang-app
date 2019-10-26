@@ -1,18 +1,15 @@
 import React from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { OpenSansLightText, OpenSansRegularText } from '../StyledText'
+import UIActivityIndicator from '../../components/UIActivityIndicator'
+import { OpenSansLightText } from '../StyledText'
 import Update from './Update'
 
 const UpdatesListView = ({ updates }) => {
   const isLoading = updates === undefined
   if (isLoading) {
     return (
-      <View style={{ flex: 0 }}>
-        <OpenSansLightText style={{ flex: 0, fontSize: 16, textAlign: 'center' }}>
-          Loading...
-        </OpenSansLightText>
-      </View>
+      <UIActivityIndicator />
     )
   }
   

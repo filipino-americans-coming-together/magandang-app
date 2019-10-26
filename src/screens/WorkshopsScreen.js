@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView, Modal } from 'react-native';
+import { ActivityIndicator, View, ScrollView, Modal } from 'react-native';
 import { OpenSansLightText } from '../components/StyledText'
 import { Ionicons } from '@expo/vector-icons';
 
 import { fetchAllWorkshops } from '../api/Client'
 import { getFavoriteWorkshops, storeFavoriteWorkshops } from '../services/favoriteWorkshopsStore'
 
+import UIActivityIndicator from '../components/UIActivityIndicator'
 import Workshop from '../components/workshops/Workshop'
 
 const WorkshopsScreenHeader = () => {
@@ -74,7 +75,7 @@ const WorkshopsScreen = () => {
       <ScrollView style={scrollContainerStyles}>
         <WorkshopsScreenHeader/>
         { isLoading ? (
-          <OpenSansLightText>Loading...</OpenSansLightText>
+          <UIActivityIndicator />
         ): renderedWorkshops}
       </ScrollView>
     </View>
