@@ -26,20 +26,12 @@ const UpdatesScreen = ({ navigation }) => {
     <View style={{ flex: 1 }}>
       <UIStatusBarSpace/>
       <UIScreenHeader>Updates</UIScreenHeader>
-      <UpdatesListView updates={updates}/>
+      <View style={{ flex: 1, paddingHorizontal: 16 }}>
+        <UpdatesListView updates={updates}/>
+      </View>
     </View>
   )
 }
-
-const sectionStyles = StyleSheet.create({
-  header: {
-    paddingBottom: 15,
-    flex: 0
-  },
-  body: {
-    flex: 0
-  }
-})
 
 UpdatesScreen.navigationOptions = {
   header: null,

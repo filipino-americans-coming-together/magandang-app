@@ -9,9 +9,9 @@ import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
 
 const Map = ({ building, floor, map }) => {
   return (
-    <View style={{ flex: 1, paddingVertical: 10 }}>
-      <OpenSansBoldText style={{ fontSize: 20 }}>{building}</OpenSansBoldText>
-      <OpenSansBoldText style={{ fontSize: 16, color: '#999999', }}>{floor}</OpenSansBoldText>
+    <View style={{ flex: 1, paddingVertical: 16 }}>
+      <OpenSansBoldText style={{ fontSize: 22 }}>{building}</OpenSansBoldText>
+      <OpenSansBoldText style={{ fontSize: 18, color: '#999999', paddingBottom: 10 }}>{floor}</OpenSansBoldText>
       <View style={{
         flex: 1,
         flexDirection: 'column',
@@ -62,7 +62,7 @@ const MapsScreen = () => {
       <UIStatusBarSpacer/>
       <UIScreenHeader>Campus Maps</UIScreenHeader>
       <ScrollView style={{ flex: 1 }}>
-        <View style={{ paddingHorizontal: 20 }}>
+        <View style={{ paddingHorizontal: 16 }}>
           {maps.map(map => (
             <Map 
               key={map.id} 

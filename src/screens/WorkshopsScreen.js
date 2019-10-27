@@ -17,14 +17,13 @@ const WorkshopsScreenHeader = () => {
       flexDirection: 'row', 
       paddingTop: 22, 
       paddingBottom: 12, 
-      paddingHorizontal: 10 
     }}>
       <View style={{ flex: 1}}>
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
           <OpenSansLightText style={{ flex: 0, fontSize: 24 }}>All Workshops</OpenSansLightText>
         </View>
       </View>
-      <View style={{ flex: 0, flexDirection: 'row', paddingHorizontal: 12 }}>
+      <View style={{ flex: 0, flexDirection: 'row'}}>
         <Ionicons style={{ flex: 0 }} name="ios-funnel" size={30} color="#bbbbbb" />
       </View>
     </View>
@@ -74,14 +73,16 @@ const WorkshopsScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       <UIStatusBarSpacer/>
-      <WorkshopsScreenHeader />
-      <ScrollView>
-        <View style={{ flex: 1, marginHorizontal: 10 }}>
-            { isLoading ? (
-              <UIActivityIndicator />
-            ): renderedWorkshops}
-        </View>
-      </ScrollView>
+      <View style={{ paddingHorizontal: 16 }}>
+        <WorkshopsScreenHeader />
+        <ScrollView>
+          <View style={{ flex: 1}}>
+              { isLoading ? (
+                <UIActivityIndicator />
+              ): renderedWorkshops}
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 }

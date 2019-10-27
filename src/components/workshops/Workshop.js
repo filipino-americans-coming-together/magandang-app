@@ -54,7 +54,6 @@ const WorkshopFacilitator = ({ children }) => {
 const FavoriteIcon = ({ isFavorited, toggleFavorited }) => {
   const containerStyles = {
     flex: 0,
-    padding: 12
   }
   const verticallyCenterStyles = {
     flex: 1,
@@ -82,7 +81,7 @@ const Workshop = ({ workshop, showFavoriteButton, isFavorited, toggleFavorited }
     }}>
       <View style={{ flex: 1, flexDirection: 'row' }}>
         <WorkshopId>{id}</WorkshopId>
-        <View style={{ flex: 1, padding: 12, paddingTop: 0 }}>
+        <View style={{ flex: 1, paddingLeft: 12 }}>
           <WorkshopTitle>{title}</WorkshopTitle>
           <WorkshopFacilitator>{name}</WorkshopFacilitator>
         </View>
