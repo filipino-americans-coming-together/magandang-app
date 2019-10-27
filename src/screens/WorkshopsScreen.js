@@ -15,7 +15,7 @@ const WorkshopsScreenHeader = () => {
     <View style={{ 
       flex: 0, 
       flexDirection: 'row', 
-      paddingTop: 15, 
+      paddingTop: 22, 
       paddingBottom: 12, 
       paddingHorizontal: 10 
     }}>

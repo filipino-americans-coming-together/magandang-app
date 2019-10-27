@@ -1,14 +1,19 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Platform, View } from 'react-native'
 import Constants from 'expo-constants';
 
 import Colors from '../constants/Colors'
 
-const UIStatusBarSpacer = () => (
-  <View style={{
-    backgroundColor: Colors.PLUM,
-    height: Constants.statusBarHeight,
-  }}/>
-)
+const UIStatusBarSpacer = () => {
+  if (Platform.OS !== 'ios') {
+    return null
+  }
+  return (
+    <View style={{
+      backgroundColor: Colors.PLUM,
+      height: Constants.statusBarHeight,
+    }}/>
+  )
+}
 
 export default UIStatusBarSpacer

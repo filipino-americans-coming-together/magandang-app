@@ -5,7 +5,7 @@ import { OpenSansLightText } from '../components/StyledText'
 
 const UIScreenHeader = ({ children }) => (
   <View style={{ 
-    paddingTop: 18,
+    paddingTop: 22,
     paddingBottom: 12, 
     paddingHorizontal: 10 ,
   }}>
