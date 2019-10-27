@@ -23,7 +23,7 @@ const FilterOption = ({ children, selected, handlePress }) => {
         borderColor: selected ? '#bbbbbb' : '#dddddd',
       }}>
         <OpenSansLightText style={{
-          color: selected ? '#555555' : 'black'
+          color: selected ? '#555555' : '#444444'
         }}>{children}</OpenSansLightText>
       </View>
     </TouchableOpacity>
@@ -77,7 +77,6 @@ const WorkshopsScreen = () => {
     getFavoriteWorkshops()
       .then(res => setFavoritedWorkshops(res))
   }, [])
-
   const makeToggleFavorited = (workshopId) => () => {
     if (favoritedWorkshops.includes(workshopId)) {
       const idx = favoritedWorkshops.indexOf(workshopId)
@@ -85,17 +84,17 @@ const WorkshopsScreen = () => {
         ...favoritedWorkshops.slice(0, idx),
         ...favoritedWorkshops.slice(idx + 1)
       ]
-      setFavoritedWorkshops(newWorkshops,
-      storeFavoriteWorkshops(newWorkshops))
+      setFavoritedWorkshops(newWorkshops)
     } else {
       const newWorkshops = [...favoritedWorkshops, workshopId]
-      setFavoritedWorkshops(newWorkshops,
-        storeFavoriteWorkshops(newWorkshops))
+      setFavoritedWorkshops(newWorkshops)
     }
   }
+  useEffect(() => {
+    storeFavoriteWorkshops(favoritedWorkshops)
+  })
 
   const [filter, setFilter] = useState('')
-
   const renderedWorkshops = workshops
     .filter(workshop => {
       switch(filter) {
@@ -127,15 +126,15 @@ const WorkshopsScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: Colors.OFF_WHITE }}>
       <UIStatusBarSpacer/>
-      <View style={{ paddingHorizontal: 16 }}>
+      <View style={{ flex: 1, paddingHorizontal: 16 }}>
         <UIScreenHeader>Workshops</UIScreenHeader>
         <WorkshopsFilterOptions filter={filter} setFilter={setFilter}/>
-        <ScrollView>
-          <View style={{ flex: 1}}>
-              { isLoading ? (
-                <UIActivityIndicator />
-              ): renderedWorkshops}
-          </View>
+        <ScrollView style={{ flex: 1 }}>
+
+          { isLoading ? (
+            <UIActivityIndicator />
+          ): renderedWorkshops}
+
         </ScrollView>
       </View>
     </View>

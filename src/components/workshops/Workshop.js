@@ -78,6 +78,7 @@ const Workshop = ({ workshop, showFavoriteButton, isFavorited, toggleFavorited }
   const { id, name, title } = workshop
   return (
     <View style={{
+      flex: 1,
       marginVertical: 10,
     }}>
       <View style={{ flex: 1, flexDirection: 'row' }}>
