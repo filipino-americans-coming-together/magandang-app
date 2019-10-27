@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 
 import { fetchUpdates } from '../api/Client'
 
-import { OpenSansLightText } from '../components/StyledText'
+import Colors from '../constants/Colors'
 import UpdatesListView from '../components/updates/UpdatesListView'
 import UIStatusBarSpace from '../components/UIStatusBarSpacer'
 import UIScreenHeader from '../components/UIScreenHeader'
@@ -23,7 +23,7 @@ const UpdatesScreen = ({ navigation }) => {
   }, [])
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.OFF_WHITE }}>
       <UIStatusBarSpace/>
       <UIScreenHeader>Updates</UIScreenHeader>
       <View style={{ flex: 1, paddingHorizontal: 16 }}>

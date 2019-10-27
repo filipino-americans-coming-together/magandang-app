@@ -3,6 +3,7 @@ import { View, ScrollView, Image, Dimensions } from 'react-native'
 
 import ImageZoom from 'react-native-image-pan-zoom';
 
+import Colors from '../constants/Colors';
 import { OpenSansBoldText } from '../components/StyledText'
 import UIScreenHeader from '../components/UIScreenHeader'
 import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
@@ -58,7 +59,7 @@ const MapsScreen = () => {
     }
   ]
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: Colors.OFF_WHITE }}>
       <UIStatusBarSpacer/>
       <UIScreenHeader>Campus Maps</UIScreenHeader>
       <ScrollView style={{ flex: 1 }}>

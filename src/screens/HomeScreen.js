@@ -54,7 +54,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={{ 
       flex: 1,
-      backgroundColor: '#eeeeee',
+      backgroundColor: Colors.OFF_WHITE,
     }}>
       <UIStatusBarSpacer/>
       <ScrollView>
