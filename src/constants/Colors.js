@@ -17,5 +17,7 @@ export default {
   LEMONADE: '#fefdd8',
   CHIVE: '#cbd277',
   OLIVE: '#96a341',
-  WHITE: '#FFFFFF'
+  /* CUSTOM COLORS */
+  WHITE: '#FFFFFF',
+  OFF_WHITE: '#fafafa'
 };

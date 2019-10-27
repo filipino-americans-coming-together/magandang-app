@@ -3,6 +3,7 @@ import {
   ScrollView,
   Image,
   View,
+  Picker
 } from 'react-native';
 import Constants from 'expo-constants';
 
@@ -53,7 +54,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={{ 
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#eeeeee',
     }}>
       <UIStatusBarSpacer/>
       <ScrollView>
