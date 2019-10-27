@@ -54,6 +54,7 @@ const WorkshopFacilitator = ({ children }) => {
 const FavoriteIcon = ({ isFavorited, toggleFavorited }) => {
   const containerStyles = {
     flex: 0,
+    paddingLeft: 12
   }
   const verticallyCenterStyles = {
     flex: 1,
