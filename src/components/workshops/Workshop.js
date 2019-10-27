@@ -6,7 +6,7 @@ import { OpenSansBoldText, OpenSansLightText } from '../StyledText'
 import { Ionicons } from '@expo/vector-icons';
 
 const WorkshopId = ({ children }) => {
-  const gradientColors = ['rgb(203, 145, 196)', 'rgb(181, 126, 175)']
+  const gradientColors = ['rgba(226,174,218,1)', 'rgba(212,147,203,1)']
   const containerStyles = {
     flex: 0,
     padding: 12,
