@@ -38,7 +38,7 @@ const WorkshopsFilterOptions = ({ filter, setFilter }) => {
     }
   } 
   return (
-    <View style={{ paddingBottom: 12 }}>
+    <View style={{ paddingBottom: 12, paddingHorizontal: 16 }}>
       <ScrollView 
         horizontal={true} 
         showsHorizontalScrollIndicator={false} 

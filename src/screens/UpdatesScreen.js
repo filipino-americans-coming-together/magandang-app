@@ -13,13 +13,6 @@ const UpdatesScreen = ({ navigation }) => {
   useEffect(() => {
     fetchUpdates()
         .then(res => setUpdates(res.data.updates))
-    // const interval = setInterval(() => {
-    //   fetchUpdates()
-    //     .then(res => setUpdates(res.data.updates))
-    // }, 1000)
-    // return () => {
-    //   clearInterval(interval)
-    // }
   }, [])
 
   return (
