@@ -126,10 +126,10 @@ const WorkshopsScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: Colors.OFF_WHITE }}>
       <UIStatusBarSpacer/>
-      <View style={{ flex: 1, paddingHorizontal: 16 }}>
+      <View style={{ flex: 1 }}>
         <UIScreenHeader>Workshops</UIScreenHeader>
         <WorkshopsFilterOptions filter={filter} setFilter={setFilter}/>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1, paddingHorizontal: 16 }}>
 
           { isLoading ? (
             <UIActivityIndicator />
