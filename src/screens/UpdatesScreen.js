@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 
 import { fetchUpdates } from '../api/Client'
 
