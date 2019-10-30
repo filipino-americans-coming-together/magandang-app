@@ -5,8 +5,8 @@ import { fetchUpdates } from '../api/Client'
 
 import Colors from '../constants/Colors'
 import UpdatesListView from '../components/updates/UpdatesListView'
-import UIStatusBarSpace from '../components/UIStatusBarSpacer'
-import UIScreenHeader from '../components/UIScreenHeader'
+import UIStatusBarSpace from '../UIComponents/UIStatusBarSpacer'
+import UIScreenHeader from '../UIComponents/UIScreenHeader'
 
 const UpdatesScreen = ({ navigation }) => {
   const [updates, setUpdates] = useState()

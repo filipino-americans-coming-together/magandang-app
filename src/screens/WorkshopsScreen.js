@@ -6,10 +6,10 @@ import Colors from '../constants/Colors'
 import { fetchAllWorkshops } from '../api/Client'
 import { getFavoriteWorkshops, storeFavoriteWorkshops } from '../services/favoriteWorkshopsStore'
 
-import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
-import UIActivityIndicator from '../components/UIActivityIndicator'
+import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
+import UIActivityIndicator from '../UIComponents/UIActivityIndicator'
 import Workshop from '../components/workshops/Workshop'
-import UIScreenHeader from '../components/UIScreenHeader';
+import UIScreenHeader from '../UIComponents/UIScreenHeader';
 
 const FilterOption = ({ children, selected, handlePress }) => {
   return (

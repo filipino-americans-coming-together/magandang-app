@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, ScrollView } from 'react-native'
 
-import UISocialMediaButton from '../../components/UISocialMediaButton'
-import UIActivityIndicator from '../../components/UIActivityIndicator'
+import UISocialMediaButton from '../../UIComponents/UISocialMediaButton'
+import UIActivityIndicator from '../../UIComponents/UIActivityIndicator'
 import { OpenSansLightText } from '../StyledText'
 import Update from './Update'
 

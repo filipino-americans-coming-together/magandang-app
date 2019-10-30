@@ -5,8 +5,8 @@ import ImageZoom from 'react-native-image-pan-zoom';
 
 import Colors from '../constants/Colors';
 import { OpenSansBoldText } from '../components/StyledText'
-import UIScreenHeader from '../components/UIScreenHeader'
-import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
+import UIScreenHeader from '../UIComponents/UIScreenHeader'
+import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 
 const Map = ({ building, floor, map }) => {
   return (

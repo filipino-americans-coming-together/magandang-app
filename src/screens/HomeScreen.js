@@ -15,8 +15,8 @@ import {
 } from '../services/favoriteWorkshopsStore'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
 
-import UIStatusBarSpacer from '../components/UIStatusBarSpacer'
-import UIScreenHeader from '../components/UIScreenHeader'
+import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
+import UIScreenHeader from '../UIComponents/UIScreenHeader'
 
 export default function HomeScreen({ navigation }) {
   useEffect(() => {
