@@ -11,6 +11,9 @@
       "android",
     ],
     "version": "1.0.0",
+    "android": {
+      "versionCode": 1
+    },
     "orientation": "portrait",
     "icon": "./assets/images/fact-icon.png",
     "splash": {
@@ -25,7 +28,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "buildNumber": "1.0.0"
     },
     "androidStatusBar": {
       "barStyle": "light-content",
@@ -42,6 +46,6 @@
       "iosDisplayInForeground": true,
       "androidMode": "default"
     },
-    "primaryColor": "#000000"
+    "primaryColor": "#000000",
   }
 }

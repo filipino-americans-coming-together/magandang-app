@@ -19,6 +19,8 @@ import {
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 import UIScreenHeader from '../UIComponents/UIScreenHeader'
 
+import PrivacyPolicyLink from '../components/PrivacyPolicyLink'
+
 const Event = ({ event }) => {
   const commonStyles = {
     color: Colors.WHITE
@@ -132,6 +134,7 @@ export default function HomeScreen() {
             return <Event key={event.title} event={event}/>
           })}
         </View>
+        <PrivacyPolicyLink/>
       </ScrollView>
     </View>
   );
