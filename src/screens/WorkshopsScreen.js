@@ -129,13 +129,17 @@ const WorkshopsScreen = () => {
       <View style={{ flex: 1 }}>
         <UIScreenHeader>Workshops</UIScreenHeader>
         <WorkshopsFilterOptions filter={filter} setFilter={setFilter}/>
-        <ScrollView style={{ flex: 1, paddingHorizontal: 16 }}>
-
-          { isLoading ? (
-            <UIActivityIndicator />
-          ): renderedWorkshops}
-
-        </ScrollView>
+        {
+          isLoading ? (
+            <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
+              <UIActivityIndicator />
+            </View>
+          ) : (
+            <ScrollView style={{ flex: 1, paddingHorizontal: 16 }}>
+              {renderedWorkshops}
+            </ScrollView>
+          )
+        }
       </View>
     </View>
   );
