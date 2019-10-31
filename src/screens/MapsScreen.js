@@ -1,63 +1,14 @@
 import React from 'react';
-import { View, ScrollView, Image, Dimensions } from 'react-native'
+import { View, ScrollView, Image } from 'react-native'
 
-import ImageZoom from 'react-native-image-pan-zoom';
-
+import { maps } from '../constants/maps'
 import Colors from '../constants/Colors';
-import { OpenSansBoldText } from '../components/StyledText'
+
+import Map from '../components/maps/Map'
 import UIScreenHeader from '../UIComponents/UIScreenHeader'
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 
-const Map = ({ building, floor, map }) => {
-  return (
-    <View style={{ flex: 1, paddingVertical: 16 }}>
-      <OpenSansBoldText style={{ fontSize: 22 }}>{building}</OpenSansBoldText>
-      <OpenSansBoldText style={{ fontSize: 18, color: '#999999', paddingBottom: 10 }}>{floor}</OpenSansBoldText>
-      <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        height: 280
-     
-      }}>
-        <Image 
-          source={map}
-          style={{
-            flex: 1,
-            width: '100%',
-          }}
-          resizeMode='contain'
-        />
-      </View>
-    </View>
-  )
-}
 const MapsScreen = () => {
-  const maps = [
-    {
-      id: 'lincoln-hall-floor-1',
-      building: 'Lincoln Hall',
-      floor: 'First Floor',
-      map: require('../../assets/images/maps/lincoln-hall-floor-1.png'),
-    },
-    {
-      id: 'gregory-hall-floor-1',
-      building: 'Gregory Hall',
-      floor: 'First Floor',
-      map: require('../../assets/images/maps/gregory-hall-floor-1.png'),
-    },
-    {
-      id: 'gregory-hall-floor-2',
-      building: 'Gregory Hall',
-      floor: 'Second Floor',
-      map: require('../../assets/images/maps/gregory-hall-floor-2.png'),
-    },
-    {
-      id: 'gregory-hall-floor-3',
-      building: 'Gregory Hall',
-      floor: 'Third Floor',
-      map: require('../../assets/images/maps/gregory-hall-floor-3.png'),
-    }
-  ]
   return (
     <View style={{ flex: 1, backgroundColor: Colors.OFF_WHITE }}>
       <UIStatusBarSpacer/>
@@ -70,6 +21,7 @@ const MapsScreen = () => {
               building={map.building}
               floor={map.floor}
               map={map.map}
+              link={map.link}
             />
           ))}
         </View>

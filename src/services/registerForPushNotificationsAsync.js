@@ -8,15 +8,17 @@ export default async function registerForPushNotificationsAsync() {
     Permissions.NOTIFICATIONS
   );
   let finalStatus = existingStatus;
-  console.log('STATUS', finalStatus)
   // only ask if permissions have not already been determined, because
   // iOS won't necessarily prompt the user a second time.
   if (existingStatus !== 'granted') {
     // Android remote notification permissions are granted during the app
     // install, so this will only ask on iOS
-    console.log('ASKING FOR PERMISSIONS')
-    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-    finalStatus = status;
+    try {
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      finalStatus = status;
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   // Stop here if the user did not grant permissions
@@ -24,10 +26,12 @@ export default async function registerForPushNotificationsAsync() {
     return;
   }
 
-  console.log('GET PUSH TOKEN')
-  // Get the token that uniquely identifies this device
-  let token = await Notifications.getExpoPushTokenAsync();
-  console.log('TOKEN', token)
-  postNotifcationsToken(token)
-    .then(res => console.log('Token posted.', res))
+  try {
+    // Get the token that uniquely identifies this device
+    let token = await Notifications.getExpoPushTokenAsync();
+    postNotifcationsToken(token)
+      .then(res => console.log('Token posted.', res))
+  } catch (e) {
+    console.log(e)
+  }
 }
