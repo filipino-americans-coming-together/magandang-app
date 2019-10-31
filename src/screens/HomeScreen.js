@@ -12,7 +12,7 @@ import UIGradientCard from '../UIComponents/UIGradientCard'
 
 import { 
   OpenSansBoldText,
-  OpenSansRegularText,
+  MoamText,
   OpenSansSemiboldText,
   OpenSansLightText
 } from '../components/StyledText'
@@ -78,7 +78,10 @@ export default function HomeScreen() {
     }}>
       <UIStatusBarSpacer/>
       <ScrollView>
-        <View style={{ height: 300 }}>
+        <View style={{ 
+          position: 'relative',
+          height: 300 
+        }}>
           <Image 
             source={require('../../assets/images/preview.png')}
             style={{ 
@@ -88,6 +91,25 @@ export default function HomeScreen() {
             }}
             resizeMode="cover"
           />
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+            <MoamText style={{
+              color: Colors.WHITE,
+              fontSize: 45,
+            }}>FACT 2019</MoamText>
+            <MoamText style={{
+              marginTop: 30,
+              color: Colors.WHITE,
+              fontSize: 35,
+            }}>KAYANG ABUTIN</MoamText>
+          </View>
         </View>
         <UIScreenHeader>Agenda</UIScreenHeader>
         <View style={{

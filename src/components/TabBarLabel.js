@@ -10,6 +10,7 @@ const TabBarLabel = ({ focused, title}) => {
     color: focused ? Colors.PLUM : Colors.tabIconDefault,
     textAlign: 'center',
     paddingBottom: 5,
+    marginHorizontal: 20
   }
   return (
     <OpenSansLightText style={styles}>{title}</OpenSansLightText>

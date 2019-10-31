@@ -10,7 +10,6 @@ import UpdatesScreen from '../screens/UpdatesScreen'
 import WorkshopsScreen from '../screens/WorkshopsScreen';
 import MapsScreen from '../screens/MapsScreen';
 
-import { Text } from 'react-native';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -25,7 +24,6 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: ({ focused }) => <TabBarLabel title='Home' focused={focused} />,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -48,7 +46,6 @@ const UpdatesStack = createStackNavigator(
 )
 
 UpdatesStack.navigationOptions = {
-  tabBarLabel: ({ focused }) => <TabBarLabel title='Updates' focused={focused} />,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
@@ -70,7 +67,6 @@ const WorkshopsStack = createStackNavigator(
 );
 
 WorkshopsStack.navigationOptions = {
-  tabBarLabel: ({ focused }) => <TabBarLabel title='Workshops' focused={focused} />,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
@@ -93,7 +89,6 @@ const MapsStack = createStackNavigator(
 );
 
 MapsStack.navigationOptions = {
-  tabBarLabel: ({ focused }) => <TabBarLabel title='Map' focused={focused} />,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
@@ -110,6 +105,10 @@ const tabNavigator = createBottomTabNavigator({
   UpdatesStack,
   WorkshopsStack,
   MapsStack,
+}, {
+  tabBarOptions: {
+    showLabel: false
+  }
 });
 
 tabNavigator.path = '';
