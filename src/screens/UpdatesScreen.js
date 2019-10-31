@@ -12,7 +12,19 @@ const UpdatesScreen = ({ navigation }) => {
   const [updates, setUpdates] = useState()
   useEffect(() => {
     fetchUpdates()
+      .then(res => setUpdates(res.data.updates))
+
+    const didBlurSubscription = navigation.addListener(
+      'willFocus',
+      () => {
+        fetchUpdates()
         .then(res => setUpdates(res.data.updates))
+      }
+    );
+    
+    return () => {
+      didBlurSubscription.remove();
+    }
   }, [])
 
   return (
@@ -22,7 +34,7 @@ const UpdatesScreen = ({ navigation }) => {
       <View style={{ flex: 1, paddingHorizontal: 16 }}>
         <UpdatesListView updates={updates}/>
       </View>
-    </View>
+  </View>
   )
 }
 
