@@ -12,13 +12,15 @@ export const AGENDA = [
     title: "Registration",
     location: "Asian American Cultural Center",
     description: "",
+    size: 6
   },
   {
     day: "Friday",
     time: "7:00 - 9:00pm",
     title: "Opening Ceremonies",
     location: "Gregory Hall Auditorium",
-    description: ""
+    description: "",
+    size: 2
   },
   {
     day: "Saturday",
@@ -26,6 +28,7 @@ export const AGENDA = [
     title: "Late Registration",
     location: "University YMCA",
     description: "",
+    size: 1
   },
   {
     day: "Saturday",
@@ -33,6 +36,7 @@ export const AGENDA = [
     title: "Opening Session",
     location: "Lincoln Hall Session",
     description: "",
+    size: .7
   },
   {
     day: "Saturday",
@@ -40,6 +44,7 @@ export const AGENDA = [
     title: "Workshop Session I",
     location: "Assigned Locations",
     description: "",
+    size: 1.1
   },
   {
     day: "Saturday",
@@ -47,12 +52,14 @@ export const AGENDA = [
     title: "Workshop Session II",
     location: "Assigned Locations",
     description: "",
+    size: 1.1
   },
   {
     day: "Saturday",
     time: "12:20 - 1:30pm",
     title: "Lunch",
     description: "",
+    size: 1.1
   },
   {
     day: "Saturday",
@@ -60,6 +67,7 @@ export const AGENDA = [
     title: "Workshop Session III",
     location: "Assigned Locations",
     description: "",
+    size: 1.25
   },
   {
     day: "Saturday",
@@ -67,6 +75,7 @@ export const AGENDA = [
     title: "Meet the Facilitators & Wristband Pick-up",
     location: "Asian American Cultural Center",
     description: "",
+    size: 1
   },
   {
     day: "Saturday",
@@ -74,6 +83,7 @@ export const AGENDA = [
     title: "Variety Show",
     location: "Foellinger Auditorium",
     description: "",
+    size: 2
   }
 ]
 

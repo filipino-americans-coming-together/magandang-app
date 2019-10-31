@@ -23,11 +23,13 @@ const Event = ({ event }) => {
   const commonStyles = {
     color: Colors.WHITE
   }
+  const MULTIPLIER = 40
   return (
     <UIGradientCard style={{
       flex: 0,
       flexDirection: 'row',
-      marginBottom: 15
+      marginBottom: 15,
+      minHeight: MULTIPLIER * event.size
     }}>
       <View style={{
         flex: 2,
@@ -97,7 +99,7 @@ export default function HomeScreen() {
             marginTop: 20
           }}>Friday</OpenSansLightText>
           {fridayAgenda.map(event => {
-            return <Event event={event}/>
+            return <Event key={event.title} event={event}/>
           })}
           <OpenSansLightText style={{
             fontSize: 25,
@@ -105,7 +107,7 @@ export default function HomeScreen() {
             marginTop: 20
           }}>Saturday</OpenSansLightText>
           {saturdayAgenda.map(event => {
-            return <Event event={event}/>
+            return <Event key={event.title} event={event}/>
           })}
         </View>
       </ScrollView>
