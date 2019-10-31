@@ -21,35 +21,7 @@ import UIScreenHeader from '../UIComponents/UIScreenHeader'
 export default function HomeScreen({ navigation }) {
   useEffect(() => {
     registerForPushNotificationsAsync()
-
-    const didBlurSubscription = navigation.addListener(
-      'willFocus',
-      () => {
-        getFavoriteWorkshops()
-          .then(res => setFavoriteWorkshopsIds(res))
-      }
-    );
-    
-    return () => {
-      didBlurSubscription.remove();
-    }
   }, [])
-
-  const [workshops, setWorkshops] = useState([])
-  useEffect(() => {
-    fetchAllWorkshops()
-      .then(res => setWorkshops(res.data.workshops))
-  }, [])
-
-  const [favoriteWorkshopsIds, setFavoriteWorkshopsIds] = useState([])
-  useEffect(() => {
-    getFavoriteWorkshops()
-      .then(res => setFavoriteWorkshopsIds(res))
-  }, [])
-
-  const favoriteWorkshops = workshops.filter(workshop => {
-    return favoriteWorkshopsIds.includes(workshop.id)
-  })
   
   return (
     <View style={{ 

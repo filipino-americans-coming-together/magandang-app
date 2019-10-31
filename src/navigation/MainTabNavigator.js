@@ -106,8 +106,8 @@ MapsStack.navigationOptions = {
 MapsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  UpdatesStack,
   HomeStack,
+  UpdatesStack,
   WorkshopsStack,
   MapsStack,
 });
