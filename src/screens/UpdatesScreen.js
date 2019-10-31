@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
 
 import { fetchUpdates } from '../api/Client'
-
 import Colors from '../constants/Colors'
-import UpdatesListView from '../components/updates/UpdatesListView'
+
 import UIStatusBarSpace from '../UIComponents/UIStatusBarSpacer'
 import UIScreenHeader from '../UIComponents/UIScreenHeader'
+import UpdatesListView from '../components/updates/UpdatesListView'
 
 const UpdatesScreen = ({ navigation }) => {
   const [updates, setUpdates] = useState()
@@ -32,6 +32,7 @@ const UpdatesScreen = ({ navigation }) => {
       <UIStatusBarSpace/>
       <UIScreenHeader>Updates</UIScreenHeader>
       <View style={{ flex: 1, paddingHorizontal: 16 }}>
+        
         <UpdatesListView updates={updates}/>
       </View>
   </View>

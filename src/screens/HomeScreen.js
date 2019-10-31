@@ -1,27 +1,73 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   ScrollView,
   Image,
   View,
-  Picker
 } from 'react-native';
-import Constants from 'expo-constants';
 
+import { getFridayAgenda, getSaturdayAgenda } from '../constants/events'
 import Colors from '../constants/Colors'
-import { fetchUpdates, fetchAllWorkshops } from '../api/Client'
-import { 
-  getFavoriteWorkshops, 
-  storeFavoriteWorkshops 
-} from '../services/favoriteWorkshopsStore'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
+import UIGradientCard from '../UIComponents/UIGradientCard'
 
+import { 
+  OpenSansBoldText,
+  OpenSansRegularText,
+  OpenSansSemiboldText,
+  OpenSansLightText
+} from '../components/StyledText'
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 import UIScreenHeader from '../UIComponents/UIScreenHeader'
 
-export default function HomeScreen({ navigation }) {
+const Event = ({ event }) => {
+  const commonStyles = {
+    color: Colors.WHITE
+  }
+  return (
+    <UIGradientCard style={{
+      flex: 0,
+      flexDirection: 'row',
+      marginBottom: 15
+    }}>
+      <View style={{
+        flex: 2,
+        paddingRight: 10
+      }}> 
+        <OpenSansBoldText style={{
+          ...commonStyles,
+          fontSize: 17,
+          textAlign: 'right',
+        }}>
+          {event.time}
+        </OpenSansBoldText>
+      </View>
+      <View style={{
+        flex: 3
+      }}>
+        <OpenSansSemiboldText style={{
+          ...commonStyles,
+          fontSize: 17
+        }}>
+          {event.title}
+        </OpenSansSemiboldText>
+        <OpenSansLightText style={{
+          ...commonStyles,
+          fontSize: 17
+        }}>
+          {event.location}
+        </OpenSansLightText>
+      </View>
+    </UIGradientCard>
+  )
+}
+
+export default function HomeScreen() {
   useEffect(() => {
     registerForPushNotificationsAsync()
   }, [])
+
+  const fridayAgenda = getFridayAgenda()
+  const saturdayAgenda = getSaturdayAgenda()
   
   return (
     <View style={{ 
@@ -40,10 +86,28 @@ export default function HomeScreen({ navigation }) {
             }}
             resizeMode="cover"
           />
-
         </View>
         <UIScreenHeader>Agenda</UIScreenHeader>
-
+        <View style={{
+          paddingHorizontal: 16
+        }}>
+          <OpenSansLightText style={{
+            fontSize: 25,
+            marginBottom: 13,
+            marginTop: 20
+          }}>Friday</OpenSansLightText>
+          {fridayAgenda.map(event => {
+            return <Event event={event}/>
+          })}
+          <OpenSansLightText style={{
+            fontSize: 25,
+            marginBottom: 13,
+            marginTop: 20
+          }}>Saturday</OpenSansLightText>
+          {saturdayAgenda.map(event => {
+            return <Event event={event}/>
+          })}
+        </View>
       </ScrollView>
     </View>
   );

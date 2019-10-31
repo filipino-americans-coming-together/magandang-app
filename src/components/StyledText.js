@@ -40,7 +40,7 @@ export const OpenSansLightItalicText = (props) => (
 )
 
 export const OpenSansRegularText = (props) => (
-  <Text {...props} style={[props.style, { fontSize: 15, fontFamily: 'OpenSans-Regular'}]} />
+  <Text {...props} style={[{ fontSize: 15 }, props.style, { fontFamily: 'OpenSans-Regular'}]} />
 )
 
 export const OpenSansSemiboldText = (props) => (
