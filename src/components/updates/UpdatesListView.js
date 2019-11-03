@@ -21,6 +21,8 @@ const UpdatesListView = ({ updates }) => {
       </View>
     )
   }
+
+  updates.sort((a, b) => b.timestamp - a.timestamp)
   
   const hasNoUpdates = (updates || []).length === 0
   if (hasNoUpdates) {

@@ -14,21 +14,23 @@ const Update = ({ update }) => {
       colors={gradientColors} 
       style={{
         borderRadius: 10,
-        marginVertical: 5,
+        marginBottom: 10,
       }}
     >
       <View style={{
-        padding: 15
+        padding: 15,
+        paddingBottom: 20
       }}>
         <OpenSansExtraBoldText style={{
           color: '#fff',
-          fontSize: 17,
+          fontSize: 16,
           paddingBottom: 5
         }}>
           {update.title}
         </OpenSansExtraBoldText>
         <OpenSansRegularText style={{
-          color: '#fff'
+          color: '#fff',
+          paddingBottom: 15
         }}>
           {update.message}
         </OpenSansRegularText>
