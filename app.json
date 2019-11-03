@@ -3,7 +3,7 @@
     "name": "FACT 2019",
     "description": "An app for conference delegates to stay informed and updated during the Filipino-Americans Coming Together Conference 2019.",
     "slug": "fact-2019-app",
-    "owner": "Alpri Else",
+    "owner": "alprielse",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -39,7 +39,6 @@
       "backgroundColor": "#000000"
     },
     "androidNavigationBar": {
-      "visible": false,
       "barStyle": "light-content",
       "backgroundColor": "#000000"
     },
@@ -49,6 +48,6 @@
       "iosDisplayInForeground": true,
       "androidMode": "default"
     },
-    "primaryColor": "#000000",
+    "primaryColor": "#000000"
   }
 }
