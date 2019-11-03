@@ -44,7 +44,7 @@ const UpdatesListView = ({ updates }) => {
           <View style={{
             flexDirection: 'row',
           }}>
-            <UISocialMediaButton name="logo-facebook" link={"https://www.facebook.com/groups/640054343086746/"}/>
+            <UISocialMediaButton name="logo-facebook" link={"https://www.facebook.com/events/1121810308206799/"}/>
             <UISocialMediaButton name="logo-instagram" link={"https://www.instagram.com/psafact/"}/>
           </View>
         </View>

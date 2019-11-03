@@ -24,7 +24,8 @@ const UISocialMediaButton = ({ name, link }) => {
         justifyContent: 'center',
         margin: 2,
         padding: 0,
-        paddingVertical: 5
+        paddingVertical: 5,
+        borderRadius: 5,
       }}>
         <Ionicons name={name} size={30} color='white'/>
       </UIGradientCard>
