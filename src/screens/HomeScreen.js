@@ -8,62 +8,14 @@ import {
 import { getFridayAgenda, getSaturdayAgenda } from '../constants/events'
 import Colors from '../constants/Colors'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
-import UIGradientCard from '../UIComponents/UIGradientCard'
 
 import { 
-  OpenSansBoldText,
   MoamText,
-  OpenSansSemiboldText,
-  OpenSansLightText
 } from '../components/StyledText'
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
-import UIScreenHeader from '../UIComponents/UIScreenHeader'
 
+import Agenda from '../components/home/Agenda'
 import PrivacyPolicyLink from '../components/PrivacyPolicyLink'
-
-const Event = ({ event }) => {
-  const commonStyles = {
-    color: Colors.WHITE
-  }
-  const MULTIPLIER = 40
-  return (
-    <UIGradientCard style={{
-      flex: 0,
-      flexDirection: 'row',
-      marginBottom: 10,
-      minHeight: MULTIPLIER * event.size
-    }}>
-      <View style={{
-        flex: 2,
-        paddingRight: 10
-      }}> 
-        <OpenSansBoldText style={{
-          ...commonStyles,
-          fontSize: 16,
-          textAlign: 'right',
-        }}>
-          {event.time}
-        </OpenSansBoldText>
-      </View>
-      <View style={{
-        flex: 3
-      }}>
-        <OpenSansSemiboldText style={{
-          ...commonStyles,
-          fontSize: 16
-        }}>
-          {event.title}
-        </OpenSansSemiboldText>
-        <OpenSansLightText style={{
-          ...commonStyles,
-          fontSize: 16
-        }}>
-          {event.location}
-        </OpenSansLightText>
-      </View>
-    </UIGradientCard>
-  )
-}
 
 export default function HomeScreen() {
   useEffect(() => {
@@ -113,27 +65,7 @@ export default function HomeScreen() {
             }}>Ikaw Lamang</MoamText>
           </View>
         </View>
-        <UIScreenHeader>Agenda</UIScreenHeader>
-        <View style={{
-          paddingHorizontal: 16
-        }}>
-          <OpenSansLightText style={{
-            fontSize: 25,
-            marginBottom: 13,
-            marginTop: 20
-          }}>Friday</OpenSansLightText>
-          {fridayAgenda.map(event => {
-            return <Event key={event.title} event={event}/>
-          })}
-          <OpenSansLightText style={{
-            fontSize: 25,
-            marginBottom: 13,
-            marginTop: 20
-          }}>Saturday</OpenSansLightText>
-          {saturdayAgenda.map(event => {
-            return <Event key={event.title} event={event}/>
-          })}
-        </View>
+        <Agenda fridayAgenda={fridayAgenda} saturdayAgenda={saturdayAgenda}/>
         <PrivacyPolicyLink/>
       </ScrollView>
     </View>
