@@ -30,7 +30,7 @@ const Event = ({ event }) => {
     <UIGradientCard style={{
       flex: 0,
       flexDirection: 'row',
-      marginBottom: 15,
+      marginBottom: 10,
       minHeight: MULTIPLIER * event.size
     }}>
       <View style={{
@@ -39,7 +39,7 @@ const Event = ({ event }) => {
       }}> 
         <OpenSansBoldText style={{
           ...commonStyles,
-          fontSize: 17,
+          fontSize: 16,
           textAlign: 'right',
         }}>
           {event.time}
@@ -50,13 +50,13 @@ const Event = ({ event }) => {
       }}>
         <OpenSansSemiboldText style={{
           ...commonStyles,
-          fontSize: 17
+          fontSize: 16
         }}>
           {event.title}
         </OpenSansSemiboldText>
         <OpenSansLightText style={{
           ...commonStyles,
-          fontSize: 17
+          fontSize: 16
         }}>
           {event.location}
         </OpenSansLightText>
