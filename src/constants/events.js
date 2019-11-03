@@ -4,6 +4,12 @@ export const EVENTS = {
   WORKSHOP_SESSION_03: "WORKSHOP_SESSION_03"
 }
 
+export const SESSION_TO_TIME_TABLE = {
+  WORKSHOP_SESSION_01: "9:55 - 11:00am",
+  WORKSHOP_SESSION_02: "11:15am - 12:20pm",
+  WORKSHOP_SESSION_03: "1:45 - 3:00pm"
+}
+
 //  Must be in proper order
 export const AGENDA = [
   {

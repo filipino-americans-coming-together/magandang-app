@@ -4,6 +4,7 @@ import { View, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { OpenSansBoldText, OpenSansLightText } from '../StyledText'
 import { Ionicons } from '@expo/vector-icons';
+import { SESSION_TO_TIME_TABLE } from '../../constants/events' 
 
 const WorkshopId = ({ children }) => {
   const gradientColors = ['rgba(226,174,218,1)', 'rgba(212,147,203,1)']
@@ -63,8 +64,8 @@ const FavoriteIcon = ({ isFavorited, toggleFavorited }) => {
   }
   return (
     <TouchableOpacity onPress={toggleFavorited}>
-      <View style={containerStyles}>
-        <View style={verticallyCenterStyles}>
+      <View style={verticallyCenterStyles}>
+        <View style={containerStyles}>
           <View style={{ flex: 0 }}>
             <Ionicons name={ isFavorited ? 'ios-star' : 'ios-star-outline'} size={30} color="#bbbbbb" />
           </View>
@@ -86,6 +87,14 @@ const Workshop = ({ workshop, showFavoriteButton, isFavorited, toggleFavorited }
         <View style={{ flex: 1, paddingLeft: 12 }}>
           <WorkshopTitle>{title}</WorkshopTitle>
           <WorkshopFacilitator>{name}</WorkshopFacilitator>
+          <OpenSansLightText style={{
+            fontSize: 15,
+            color: '#444444'
+          }}>{SESSION_TO_TIME_TABLE[workshop.session]}</OpenSansLightText>
+          <OpenSansLightText style={{
+            fontSize: 15,
+            color: '#444444'
+          }}>{workshop.location}</OpenSansLightText>
         </View>
         {
           showFavoriteButton && (
