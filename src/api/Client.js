@@ -18,9 +18,13 @@ export function fetchUpdates() {
 export function postNotificationToken(token) {
   return fetch(`${API_BASE}/notifications/tokens`, {
     method: 'POST',
-    body: {
-      token
-    }
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      token: token
+    })
   }).then(res => res.json())
 
 }

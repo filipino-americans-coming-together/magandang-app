@@ -1,12 +1,13 @@
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 
-import { postNotifcationsToken } from '../api/Client'
+import { postNotificationToken } from '../api/Client'
 
 export default async function registerForPushNotificationsAsync() {
   const { status: existingStatus } = await Permissions.getAsync(
     Permissions.NOTIFICATIONS
   );
+
   let finalStatus = existingStatus;
   // only ask if permissions have not already been determined, because
   // iOS won't necessarily prompt the user a second time.
@@ -29,7 +30,8 @@ export default async function registerForPushNotificationsAsync() {
   try {
     // Get the token that uniquely identifies this device
     let token = await Notifications.getExpoPushTokenAsync();
-    postNotifcationsToken(token)
+
+    postNotificationToken(token)
       .then(res => console.log('Token posted.', res))
   } catch (e) {
     console.log(e)
