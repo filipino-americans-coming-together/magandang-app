@@ -41,7 +41,7 @@ const WorkshopTitle = ({ children }) => {
 
 const WorkshopFacilitator = ({ children }) => {
   const textStyles = {
-    fontSize: 12,
+    fontSize: 15,
     color: '#999999',
     paddingVertical: 5,
   }
@@ -89,7 +89,9 @@ const Workshop = ({ workshop, showFavoriteButton, isFavorited, toggleFavorited }
           <WorkshopFacilitator>{name}</WorkshopFacilitator>
           <OpenSansLightText style={{
             fontSize: 15,
-            color: '#444444'
+            color: '#444444',
+            marginTop: 2,
+            marginBottom: 1
           }}>{SESSION_TO_TIME_TABLE[workshop.session]}</OpenSansLightText>
           <OpenSansLightText style={{
             fontSize: 15,
