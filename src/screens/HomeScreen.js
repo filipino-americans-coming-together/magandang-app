@@ -9,12 +9,14 @@ import { getFridayAgenda, getSaturdayAgenda } from '../constants/events'
 import Colors from '../constants/Colors'
 import registerForPushNotificationsAsync from '../services/registerForPushNotificationsAsync'
 
+
 import { 
   MoamText,
 } from '../components/StyledText'
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 
 import Agenda from '../components/home/Agenda'
+import Fundraisers from '../components/home/Fundraisers'
 import PrivacyPolicyLink from '../components/PrivacyPolicyLink'
 
 export default function HomeScreen() {
@@ -66,6 +68,7 @@ export default function HomeScreen() {
           </View>
         </View>
         <Agenda fridayAgenda={fridayAgenda} saturdayAgenda={saturdayAgenda}/>
+        <Fundraisers/>
         <PrivacyPolicyLink/>
       </ScrollView>
     </View>
