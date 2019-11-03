@@ -110,7 +110,7 @@ export default function HomeScreen() {
               marginTop: 30,
               color: Colors.WHITE,
               fontSize: 35,
-            }}>KAYANG ABUTIN</MoamText>
+            }}>Ikaw Lamang</MoamText>
           </View>
         </View>
         <UIScreenHeader>Agenda</UIScreenHeader>
