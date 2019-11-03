@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, Linking } from 'react-native'
 
 import { OpenSansBoldText } from '../../components/StyledText'
 
-const Map = ({ building, floor, map, link }) => {
+const FloorMap = ({ building, floor, map, link }) => {
   const handlePress = () => {
     if (link) {
       Linking.openURL(link)
@@ -40,4 +40,4 @@ const Map = ({ building, floor, map, link }) => {
   )
 }
 
-export default Map
+export default FloorMap

@@ -1,3 +1,5 @@
+export const QUAD_MAP = require('../../assets/images/maps/quad.png')
+
 export const maps = [
   {
     id: 'lincoln-hall-floor-1',

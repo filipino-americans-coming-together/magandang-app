@@ -4,7 +4,8 @@ import { View, ScrollView, Image } from 'react-native'
 import { maps } from '../constants/maps'
 import Colors from '../constants/Colors';
 
-import Map from '../components/maps/Map'
+import QuadMap from '../components/maps/QuadMap'
+import FloorMap from '../components/maps/FloorMap'
 import UIScreenHeader from '../UIComponents/UIScreenHeader'
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 
@@ -15,8 +16,9 @@ const MapsScreen = () => {
       <UIScreenHeader>Campus Maps</UIScreenHeader>
       <ScrollView style={{ flex: 1 }}>
         <View style={{ paddingHorizontal: 16 }}>
+          <QuadMap/>
           {maps.map(map => (
-            <Map 
+            <FloorMap
               key={map.id} 
               building={map.building}
               floor={map.floor}
