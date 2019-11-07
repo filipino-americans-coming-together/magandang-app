@@ -66,7 +66,7 @@ const Agenda = ({ fridayAgenda, saturdayAgenda }) => {
           <OpenSansLightText style={{
             fontSize: 25,
             marginBottom: 13,
-            marginTop: 20
+            marginTop: 10
           }}>Friday</OpenSansLightText>
           {fridayAgenda.map(event => {
             return <Event key={event.title} event={event}/>

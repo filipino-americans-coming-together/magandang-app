@@ -16,6 +16,7 @@ import {
 import UIStatusBarSpacer from '../UIComponents/UIStatusBarSpacer'
 
 import Agenda from '../components/home/Agenda'
+import Booklet from '../components/home/Booklet'
 import Fundraisers from '../components/home/Fundraisers'
 import PrivacyPolicyLink from '../components/PrivacyPolicyLink'
 
@@ -68,6 +69,7 @@ export default function HomeScreen() {
           </View>
         </View>
         <Agenda fridayAgenda={fridayAgenda} saturdayAgenda={saturdayAgenda}/>
+        <Booklet />
         <Fundraisers/>
         <PrivacyPolicyLink/>
       </ScrollView>
