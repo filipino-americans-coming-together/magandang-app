@@ -94,6 +94,17 @@ const WorkshopsScreen = () => {
     storeFavoriteWorkshops(favoritedWorkshops)
   })
 
+  const [selectedWorkshop, setSelectedWorkshop] = useState('')
+  const makeSelectToggleHandler = (workshopId) => {
+    return () => {
+      if (selectedWorkshop === workshopId) {
+        setSelectedWorkshop('')
+      } else {
+        setSelectedWorkshop(workshopId)
+      }
+    }
+  }
+
   const [filter, setFilter] = useState('')
   const renderedWorkshops = workshops
     .filter(workshop => {
@@ -119,6 +130,8 @@ const WorkshopsScreen = () => {
         showFavoriteButton={true}
         isFavorited={favoritedWorkshops.includes(workshop.id)}
         toggleFavorited={makeToggleFavorited(workshop.id)}
+        isSelected={selectedWorkshop === workshop.id}
+        setSelected={makeSelectToggleHandler(workshop.id)}
       />
     ))
 
