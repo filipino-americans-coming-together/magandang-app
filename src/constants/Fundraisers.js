@@ -2,6 +2,13 @@
 //  Must be in proper order
 export default Fundraisers = [
   {
+    title: "FACT x KFT Fundraiser",
+    time: "All Day Friday & Saturday",
+    link: "https://www.facebook.com/events/2784749101547422/",
+    description: "Hungry for some Poke or a Sushi Burrito? Maybe want some boba with that meal? Then look no further! PSA FACT will be having a fundraiser with Kung Fu Tea on both Friday and Saturday ALL DAY! Make sure to show the flyer when you make your purchase!",
+    image: require('../../assets/images/fundraisers/kft.jpeg')
+  },
+  {
     title: "FACT x Teamoji Fundraiser",
     time: "12pm - 9pm Friday & Saturday",
     link: "https://www.facebook.com/events/524644648092620/",
