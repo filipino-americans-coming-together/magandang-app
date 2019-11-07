@@ -8,7 +8,6 @@ export default async function registerForPushNotificationsAsync() {
     Permissions.NOTIFICATIONS
   );
 
-  let finalStatus = existingStatus;
   // only ask if permissions have not already been determined, because
   // iOS won't necessarily prompt the user a second time.
   if (existingStatus !== 'granted') {
@@ -16,24 +15,26 @@ export default async function registerForPushNotificationsAsync() {
     // install, so this will only ask on iOS
     try {
       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-      finalStatus = status;
+
+      if (status !== 'granted') {
+        return;
+      }    
+        
+      try {
+        // Get the token that uniquely identifies this device
+        let token = await Notifications.getExpoPushTokenAsync();
+    
+        postNotificationToken(token)
+          .then(res => console.log('Token posted.', res))
+      } catch (e) {
+        console.log(e)
+      }
     } catch (e) {
       console.log(e)
     }
   }
 
-  // Stop here if the user did not grant permissions
-  if (finalStatus !== 'granted') {
-    return;
-  }
+  
 
-  try {
-    // Get the token that uniquely identifies this device
-    let token = await Notifications.getExpoPushTokenAsync();
-
-    postNotificationToken(token)
-      .then(res => console.log('Token posted.', res))
-  } catch (e) {
-    console.log(e)
-  }
+  
 }
